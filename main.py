@@ -1,20 +1,29 @@
 import time
 
-def countdown(user_time):
-    """Function counts down time from user input given in seconds."""
-    while user_time >= 0:
-        # Calculate minutes and seconds from remaining time
-        mins, secs = divmod(user_time, 60)
-        # Print formatted time on screen
-        print('{:02d}:{:02d}'.format(mins, secs), end="\r")
-        # Wait for 1 second
+
+def countdown(seconds):
+    """Counts down from the given number of seconds."""
+    while seconds >= 0:
+        mins, secs = divmod(seconds, 60)
+        print(f'{mins:02d}:{secs:02d}', end="\r")
         time.sleep(1)
-        # Subtract 1 second from remaining time
-        user_time -= 1
-    # Display "Done!" message after countdown finishes
+        seconds -= 1
     print('Done!')
 
+
+def get_user_time():
+    """Gets time input from the user in seconds, ensuring it's valid."""
+    while True:
+        try:
+            user_input = int(input('Please enter time in seconds: '))
+            if user_input < 0:
+                print("Please enter a positive number.")
+            else:
+                return user_input
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+
 if __name__ == "__main__":
-    # Ask user for time and pass it to the "countdown" function
-    user_time = int(input('Please enter time in seconds: '))
+    user_time = get_user_time()
     countdown(user_time)
