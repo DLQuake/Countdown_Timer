@@ -30,7 +30,7 @@ Alternatively, you can download the ZIP file from [Link](https://github.com/DLQu
 To use the program, simply run the script using Python from the command line:
 
 ```bash
-python countdown.py
+py main.py
 ```
 
 You will be prompted to enter a time in seconds. Once you have entered the time, the program will start counting down. The remaining time will be displayed in minutes and seconds format, updating every second until the countdown is complete.
